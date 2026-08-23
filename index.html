@@ -205,10 +205,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    font-weight: 700;
     margin-bottom: 18px;
     transition: background 0.2s ease, color 0.2s ease;
+  }
+  .service-card .icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
   .service-card:hover .icon { background: var(--accent); color: #fff; }
   .service-card h3 {
@@ -440,42 +447,42 @@
   <p class="section-intro">Focused, practical support at the stages that matter most for growing biotech companies. Click a card for details.</p>
   <div class="services-grid">
     <div class="service-card" data-card>
-      <div class="icon">CT</div>
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9.5V3"/><path d="M7.5 14h9"/></svg></div>
       <h3>Clinical Trial Strategy</h3>
       <p>Trial design review, phase transition planning, and operational strategy to keep programs on track and investor-ready.</p>
       <div class="more">Includes protocol review, site selection input, timeline risk assessment, and readiness planning for Phase II/III transitions.</div>
       <span class="toggle-hint">+ Show details</span>
     </div>
     <div class="service-card" data-card>
-      <div class="icon">FR</div>
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
       <h3>Fundraising Advisory</h3>
       <p>Positioning and narrative support for Series A and Series B raises, including data room prep and investor targeting.</p>
       <div class="more">Covers pitch narrative development, data room organization, and targeted investor list building based on stage and therapeutic focus.</div>
       <span class="toggle-hint">+ Show details</span>
     </div>
     <div class="service-card" data-card>
-      <div class="icon">MA</div>
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M11 20V4"/><path d="M18 20v-7"/></svg></div>
       <h3>Market &amp; Competitive Analysis</h3>
       <p>Landscape assessments and competitive intelligence to sharpen positioning ahead of key milestones.</p>
       <div class="more">Delivers competitor tracking, pipeline benchmarking, and positioning recommendations ahead of funding or partnering events.</div>
       <span class="toggle-hint">+ Show details</span>
     </div>
     <div class="service-card" data-card>
-      <div class="icon">RS</div>
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
       <h3>Regulatory Strategy Support</h3>
       <p>Guidance on regulatory pathway planning and coordination with specialist regulatory counsel.</p>
       <div class="more">Helps map pathway options (e.g. accelerated approval, breakthrough designation) and coordinates with outside regulatory counsel.</div>
       <span class="toggle-hint">+ Show details</span>
     </div>
     <div class="service-card" data-card>
-      <div class="icon">DD</div>
+      <div class="icon"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg></div>
       <h3>Due Diligence</h3>
       <p>Scientific and commercial diligence support for investors and partners evaluating biotech opportunities.</p>
       <div class="more">Supports investor and partner-side diligence with scientific review, commercial assessment, and risk flagging.</div>
       <span class="toggle-hint">+ Show details</span>
     </div>
     <div class="service-card" data-card>
-      <div class="icon">BD</div>
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M8 12l3 3 5-5"/><circle cx="12" cy="12" r="9"/></svg></div>
       <h3>Business Development</h3>
       <p>Partnership and licensing strategy to help early-stage companies build the right relationships.</p>
       <div class="more">Identifies potential licensing and co-development partners and helps structure early-stage BD conversations.</div>
