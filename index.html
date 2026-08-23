@@ -266,6 +266,12 @@
     font-size: 2rem;
     font-weight: 650;
     transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+  .about-inner .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   .about-inner .avatar:hover { transform: scale(1.06) rotate(-2deg); }
   .about-inner h2 { margin-bottom: 6px; }
@@ -480,9 +486,9 @@
 
 <div class="about reveal" id="about">
   <div class="about-inner">
-    <div class="avatar">TN</div>
+    <div class="avatar"><img src="traiche-headshot.png" alt="Traiche Nushev, M.D."></div>
     <div>
-      <h2>Traiche Nushev</h2>
+      <h2>Traiche Nushev, M.D.</h2>
       <div class="role">Founder &amp; Principal Consultant</div>
       <p>I work with biotech and pharma leadership teams to navigate the milestones that define company trajectory &mdash; from early clinical development through fundraising and partnership decisions.</p>
       <p>My approach combines close tracking of the funding and trial landscape with hands-on advisory work, so recommendations are grounded in what's actually happening across the sector right now.</p>
@@ -495,6 +501,7 @@
   <p class="section-intro">Reach out to discuss your next clinical, regulatory, or fundraising milestone.</p>
   <div class="contact-box">
     <a class="quick-email" href="mailto:nushevt@gmail.com">nushevt@gmail.com</a>
+    <a class="quick-email" href="https://www.linkedin.com/in/traiche-nushev-62908a7/" target="_blank" rel="noopener">Connect on LinkedIn</a>
     <form id="contactForm" novalidate>
       <div class="field">
         <label for="name">Name</label>
