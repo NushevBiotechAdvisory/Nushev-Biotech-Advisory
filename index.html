@@ -103,37 +103,21 @@
   }
   #dnaCanvas {
     position: absolute;
-    inset: 0;
-    width: 100%;
+    left: 0;
+    top: 0;
+    width: 40%;
     height: 100%;
     z-index: 0;
     opacity: 0.55;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, black 55%, transparent 100%);
+    mask-image: linear-gradient(to right, black 55%, transparent 100%);
   }
   .hero-content { position: relative; z-index: 1; }
 
-  /* Decorative research background icons */
-  .bg-icon {
-    position: absolute;
-    z-index: 0;
-    opacity: 0.05;
-    pointer-events: none;
-    color: var(--navy);
+  @media (max-width: 680px) {
+    #dnaCanvas { display: none; }
   }
-  .bg-icon svg {
-    width: 100%;
-    height: 100%;
-    stroke: currentColor;
-    fill: none;
-    stroke-width: 0.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  #services { position: relative; overflow: hidden; }
-  #services > * { position: relative; z-index: 1; }
-  .about-inner { position: relative; z-index: 1; }
-  .about { position: relative; overflow: hidden; }
-  #contact { position: relative; overflow: hidden; }
-  #contact > * { position: relative; z-index: 1; }
   .hero h1 {
     font-size: 2.6rem;
     font-weight: 650;
@@ -476,12 +460,6 @@
 </div>
 
 <section id="services" class="reveal">
-  <div class="bg-icon" style="width:260px;height:260px;top:-40px;right:-40px;">
-    <svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9.5V3"/><circle cx="9" cy="15" r="0.6" fill="currentColor" stroke="none"/><circle cx="13" cy="17" r="0.6" fill="currentColor" stroke="none"/><circle cx="11" cy="19" r="0.6" fill="currentColor" stroke="none"/></svg>
-  </div>
-  <div class="bg-icon" style="width:200px;height:200px;bottom:-30px;left:-30px;">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="1.6"/><circle cx="20" cy="6" r="1.6"/><circle cx="4" cy="18" r="1.6"/><circle cx="20" cy="18" r="1.6"/><path d="M9.8 10.2L5.2 7"/><path d="M14.2 10.2L18.8 7"/><path d="M9.8 13.8L5.2 17"/><path d="M14.2 13.8L18.8 17"/></svg>
-  </div>
   <h2>Services</h2>
   <p class="section-intro">Focused, practical support at the stages that matter most for growing biotech companies. Click a card for details.</p>
   <div class="services-grid">
@@ -531,9 +509,6 @@
 </section>
 
 <div class="about reveal" id="about">
-  <div class="bg-icon" style="width:300px;height:420px;top:-60px;right:-60px;">
-    <svg viewBox="0 0 24 34"><path d="M6 1c0 6 12 6 12 12s-12 6-12 12s12 6 12 12" transform="translate(0,-2)"/><path d="M6 1c0 6 12 6 12 12s-12 6-12 12s12 6 12 12" transform="translate(0,-2) scale(-1,1) translate(-24,0)"/></svg>
-  </div>
   <div class="about-inner">
     <div class="avatar"><img src="traiche-headshot.png" alt="Traiche Nushev, M.D."></div>
     <div>
@@ -546,9 +521,6 @@
 </div>
 
 <section class="contact reveal" id="contact">
-  <div class="bg-icon" style="width:220px;height:220px;top:10px;right:-40px;">
-    <svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M9 3v3M15 3v3"/><path d="M8 6h8l2 5a6 6 0 1 1-12 0z"/><path d="M4 21h16"/></svg>
-  </div>
   <h2>Let's talk</h2>
   <p class="section-intro">Reach out to discuss your next clinical, regulatory, or fundraising milestone.</p>
   <div class="contact-box">
