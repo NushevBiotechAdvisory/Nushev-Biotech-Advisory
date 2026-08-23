@@ -505,17 +505,17 @@
     <form id="contactForm" novalidate>
       <div class="field">
         <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your name">
+        <input type="text" id="name" name="name" placeholder="Your name">
         <div class="error" id="nameError"></div>
       </div>
       <div class="field">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="you@company.com">
+        <input type="email" id="email" name="email" placeholder="you@company.com">
         <div class="error" id="emailError"></div>
       </div>
       <div class="field">
         <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell me a bit about what you're working on"></textarea>
+        <textarea id="message" name="message" placeholder="Tell me a bit about what you're working on"></textarea>
         <div class="error" id="messageError"></div>
       </div>
       <div class="submit-row">
@@ -627,10 +627,11 @@
     });
   });
 
-  // Contact form validation + mailto handoff
+  // Contact form validation + Formspree submission
   const form = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
-  form.addEventListener('submit', (e) => {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = document.getElementById('name');
     const email = document.getElementById('email');
@@ -650,13 +651,30 @@
 
     if (!valid) return;
 
-    const subject = encodeURIComponent('Consultation inquiry from ' + name.value.trim());
-    const body = encodeURIComponent(message.value.trim() + '\n\n— ' + name.value.trim() + ' (' + email.value.trim() + ')');
-    window.location.href = `mailto:nushevt@gmail.com?subject=${subject}&body=${body}`;
-
-    formStatus.textContent = 'Opening your email client…';
+    submitBtn.disabled = true;
+    formStatus.style.color = '#9fe3c6';
+    formStatus.textContent = 'Sending…';
     formStatus.classList.add('show');
-    setTimeout(() => formStatus.classList.remove('show'), 4000);
+
+    try {
+      const res = await fetch('https://formspree.io/f/mppaejjj', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if (res.ok) {
+        formStatus.textContent = 'Message sent — thanks, I\'ll be in touch soon.';
+        form.reset();
+      } else {
+        formStatus.style.color = '#ff9d9d';
+        formStatus.textContent = 'Something went wrong — please email nushevt@gmail.com directly.';
+      }
+    } catch (err) {
+      formStatus.style.color = '#ff9d9d';
+      formStatus.textContent = 'Something went wrong — please email nushevt@gmail.com directly.';
+    }
+    submitBtn.disabled = false;
+    setTimeout(() => formStatus.classList.remove('show'), 6000);
   });
 
   updateActiveNav();
