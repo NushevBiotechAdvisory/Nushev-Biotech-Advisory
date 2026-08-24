@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nushev Biotech Advisory | Clinical &amp; Fundraising Strategy for Biotech</title>
+<meta name="description" content="Independent consulting for small-to-mid-sized biotechs on clinical trial strategy, fundraising, regulatory pathways, and market positioning &mdash; led by Traiche Nushev, M.D.">
+<link rel="canonical" href="https://nushevbiotech.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nushevbiotech.com/">
+<meta property="og:title" content="Nushev Biotech Advisory | Clinical &amp; Fundraising Strategy for Biotech">
+<meta property="og:description" content="Independent consulting for small-to-mid-sized biotechs on clinical trial strategy, fundraising, regulatory pathways, and market positioning.">
+<meta property="og:image" content="https://nushevbiotech.com/dna-hero.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nushev Biotech Advisory | Clinical &amp; Fundraising Strategy for Biotech">
+<meta name="twitter:description" content="Independent consulting for small-to-mid-sized biotechs on clinical trial strategy, fundraising, regulatory pathways, and market positioning.">
+<meta name="twitter:image" content="https://nushevbiotech.com/dna-hero.jpg">
+<style>
+:root {
+  --navy: #10233d;
+  --navy-light: #1b3a5f;
+  --accent: #2f6f5e;
+  --accent-light: #3d8973;
+  --bg: #f7f8fa;
+  --text: #222b36;
+  --muted: #5b6672;
+  --border: #e2e5e9;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+a { color: inherit; }
+
+/* Header */
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.25s ease, padding 0.25s ease;
+}
+header.scrolled {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  padding: 12px 6%;
+}
+header .logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+header nav { display: flex; align-items: center; }
+header nav a {
+  color: #cfd8e3;
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 0.95rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-light);
+  transition: width 0.25s ease;
+}
+header nav a:hover { color: #fff; }
+header nav a:hover::after,
+header nav a.active::after { width: 100%; }
+header nav a.active { color: #fff; }
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  display: block;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: #fff;
+  padding: 100px 6% 90px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#dnaCanvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(to right, black 55%, transparent 100%);
+  mask-image: linear-gradient(to right, black 55%, transparent 100%);
+}
+.hero-content { position: relative; z-index: 1; }
+@media (max-width: 680px) {
+  #dnaCanvas { display: none; }
+}
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 650;
+  max-width: 780px;
+  margin: 0 auto 18px;
+  letter-spacing: -0.01em;
+}
+.hero p {
+  font-size: 1.15rem;
+  color: #cfd8e3;
+  max-width: 620px;
+  margin: 0 auto 34px;
+}
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 13px 30px;
+  border-radius: 4px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn:hover { background: #266052; transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+  margin-left: 12px;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat .num {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+.stat .label {
+  font-size: 0.85rem;
+  color: #b7c4d4;
+  margin-top: 4px;
+}
+
+/* Sections */
+section { padding: 80px 6%; max-width: 1080px; margin: 0 auto; }
+section h2 {
+  font-size: 1.9rem;
+  font-weight: 650;
+  margin-bottom: 12px;
+  color: var(--navy);
+}
+section .section-intro {
+  color: var(--muted);
+  max-width: 620px;
+  margin-bottom: 44px;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+.service-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 30px 26px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(16,35,61,0.08);
+  border-color: var(--accent-light);
+}
+.service-card .icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(47,111,94,0.1);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.service-card .icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.service-card:hover .icon { background: var(--accent); color: #fff; }
+.service-card h3 {
+  font-size: 1.08rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.service-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.service-card .more {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, margin-top 0.35s ease;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+.service-card.open .more {
+  max-height: 120px;
+  margin-top: 14px;
+}
+.service-card .toggle-hint {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Track Record */
+.stats-row {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+  padding: 30px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-block { flex: 1; min-width: 160px; }
+.stat-figure {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.stat-caption {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 4px;
+  max-width: 260px;
+}
+
+/* About */
+.about {
+  background: #fff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.about-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 80px 6%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: start;
+}
+.about-inner .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 650;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+.about-inner .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-inner .avatar:hover { transform: scale(1.06) rotate(-2deg); }
+.about-inner h2 { margin-bottom: 6px; }
+.about-inner .role {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+.about-inner p { color: var(--muted); margin-bottom: 14px; max-width: 640px; }
+
+/* Contact */
+.contact { text-align: center; }
+.contact h2 { margin-bottom: 12px; }
+.contact .section-intro { margin-left: auto; margin-right: auto; }
+.contact-box {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 10px;
+  padding: 50px 6%;
+  margin-top: 10px;
+  text-align: left;
+}
+.contact-box .quick-email {
+  display: block;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #fff;
+  text-decoration: none;
+}
+.contact-box .quick-email:hover { text-decoration: underline; }
+.contact-box .book-call {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 20px;
+  font-size: 1.02rem;
+  padding: 14px 36px;
+}
+form#contactForm {
+  max-width: 480px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-size: 0.85rem; color: #b7c4d4; }
+.field input, .field textarea {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 5px;
+  padding: 12px 14px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.field input::placeholder, .field textarea::placeholder { color: #8a97a8; }
+.field input:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--accent-light);
+  background: rgba(255,255,255,0.13);
+}
+.field textarea { resize: vertical; min-height: 100px; }
+.field .error {
+  color: #ff9d9d;
+  font-size: 0.8rem;
+  min-height: 16px;
+}
+form#contactForm .submit-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 6px;
+}
+.form-status {
+  font-size: 0.9rem;
+  color: #9fe3c6;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.form-status.show { opacity: 1; }
+footer {
+  text-align: center;
+  padding: 30px 6%;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Back to top */
+#backToTop {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+  z-index: 90;
+}
+#backToTop.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+#backToTop:hover { background: #266052; }
+@media (max-width: 680px) {
+  .menu-toggle { display: flex; }
+  header nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    background: var(--navy);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 6% 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  header nav.open { max-height: 300px; }
+  header nav a { margin: 12px 0; }
+  .hero h1 { font-size: 2rem; }
+  .about-inner { grid-template-columns: 1fr; text-align: left; }
+  .stats { gap: 34px; }
+}
+</style>
+</head>
+<body>
+<header id="siteHeader">
+<div class="logo" data-scroll-to="top">Nushev Biotech Advisory</div>
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+<span></span><span></span><span></span>
+</button>
+<nav id="siteNav">
+<a href="#services" data-nav>Services</a>
+<a href="#about" data-nav>About</a>
+<a href="#track-record" data-nav>Track Record</a>
+<a href="#contact" data-nav>Contact</a>
+</nav>
+</header>
+
+<div class="hero">
+<img id="dnaCanvas" src="dna-hero.jpg" alt="DNA double helix">
+<div class="hero-content">
+<h1>Turning strong science into fundable, defensible strategy</h1>
+<p>Independent advisory for emerging biotech and pharma companies navigating clinical development, fundraising, and regulatory milestones.</p>
+<a class="btn" href="#contact">Get in touch</a>
+<a class="btn btn-outline" href="#services">See services</a>
+<div class="stats">
+<div class="stat"><div class="num"><span class="count-num" data-count="20">0</span>+</div><div class="label">Years in clinical research</div></div>
+<div class="stat"><div class="num"><span class="count-num" data-count="600">0</span>+</div><div class="label">Monitoring visits led</div></div>
+<div class="stat"><div class="num"><span class="count-num" data-count="17">0</span>+</div><div class="label">Years in oncology &amp; onco-hematology</div></div>
+</div>
+</div>
+</div>
+
+<section id="services" class="reveal">
+<h2>Services</h2>
+<p class="section-intro">Every engagement starts with your specific goals, not a standard package. Services are tailored to where your company is and what needs to happen next, with a consistent focus on the outcomes that move your program forward. Click a card for details.</p>
+<div class="services-grid">
+<div class="service-card" data-card>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6.5L4.5 18a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9.5V3"/><path d="M7.5 14h9"/></svg></div>
+<h3>Clinical Trial Strategy</h3>
+<p>A plan built around your program's specific risks and timeline — trial design review, phase transition planning, and operational strategy focused on keeping you on track and investor-ready.</p>
+<div class="more">Includes protocol review, site selection input, timeline risk assessment, and readiness planning for Phase II/III transitions.</div>
+<span class="toggle-hint">+ Show details</span>
+</div>
+<div class="service-card" data-card>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+<h3>Fundraising Advisory</h3>
+<p>A narrative shaped around your data and your investors, not a template pitch — positioning, data room prep, and targeted investor outreach built around specific value-inflection milestones.</p>
+<div class="more">Covers narrative and positioning for generalist and specialist biotech investors, data room and diligence readiness, milestone-based investor targeting for Series A/B and bridge rounds, valuation framing against current comparables, and pitch deck and Q&amp;A preparation.</div>
+<span class="toggle-hint">+ Show details</span>
+</div>
+<div class="service-card" data-card>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M11 20V4"/><path d="M18 20v-7"/></svg></div>
+<h3>Market &amp; Competitive Analysis</h3>
+<p>Landscape assessments and competitive intelligence tailored to your therapeutic area, giving you a clear, defensible position ahead of the milestones that matter most.</p>
+<div class="more">Delivers competitor tracking, pipeline benchmarking, and positioning recommendations ahead of funding or partnering events.</div>
+<span class="toggle-hint">+ Show details</span>
+</div>
+<div class="service-card" data-card>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+<h3>Regulatory Strategy Support</h3>
+<p>Pathway guidance built around your program's specific profile, coordinated closely with specialist regulatory counsel to keep your submission strategy on the fastest realistic route to approval.</p>
+<div class="more">Helps map pathway options (e.g. accelerated approval, breakthrough designation) and coordinates with outside regulatory counsel.</div>
+<span class="toggle-hint">+ Show details</span>
+</div>
+<div class="service-card" data-card>
+<div class="icon"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg></div>
+<h3>Due Diligence</h3>
+<p>Diligence scoped to the specific questions that matter for your deal — scientific and commercial review built to help investors and partners reach a confident, well-informed decision.</p>
+<div class="more">Supports investor and partner-side diligence with scientific review, commercial assessment, and risk flagging.</div>
+<span class="toggle-hint">+ Show details</span>
+</div>
+<div class="service-card" data-card>
+<div class="icon"><svg viewBox="0 0 24 24"><path d="M8 12l3 3 5-5"/><circle cx="12" cy="12" r="9"/></svg></div>
+<h3>Business Development</h3>
+<p>Partnership and licensing strategy shaped around your goals, focused on building the specific relationships that move your company toward its next milestone.</p>
+<div class="more">Identifies potential licensing and co-development partners and helps structure early-stage BD conversations.</div>
+<span class="toggle-hint">+ Show details</span>
+</div>
+</div>
+</section>
+
+<div class="about reveal" id="about">
+<div class="about-inner">
+<div class="avatar"><img src="traiche-headshot.png" alt="Traiche Nushev, M.D."></div>
+<div>
+<h2>Traiche Nushev, MD</h2>
+<div class="role">Founder &amp; Principal Consultant</div>
+<p>20+ years in clinical research and operations across CRO and pharma environments, including 17+ years in oncology/onco-hematology and 9+ years in Phase I/early Phase II studies. My background spans global roles at organizations including Novartis, IQVIA, and WCG, along with CRO leadership positions across Europe.</p>
+<p>I led the launch and clinical-data implementation of the first Entresto Post-Approval Study in the US &amp; Canada, a milestone within Novartis' PLS Cardiology program, and built the clinical operations function for Bulgaria &amp; Serbia at Accelsiors CRO, including direct FDA audit readiness. Over two decades I've executed 600+ routine monitoring visits and 200+ site initiation visits across Phase I&ndash;IV trials, spanning oncology, cardiovascular, immunology, rare disease, and CAR-T/first-in-human programs.</p>
+<p>I hold an MD from the Medical University of Sofia and completed immunology coursework at Harvard Medical School in 2025. I now bring that operational and clinical depth to small-to-mid-sized biotechs as fractional leadership &mdash; without the cost of a full-time C-level hire.</p>
+</div>
+</div>
+</div>
+
+<section class="track-record reveal" id="track-record">
+<h2>Track Record</h2>
+<p class="section-intro">Prior industry experience across CRO and pharma roles &mdash; not consultancy client engagements, but the operational foundation the consultancy is built on.</p>
+<div class="stats-row">
+<div class="stat-block"><div class="stat-figure">30+</div><div class="stat-caption">Industry-sponsored trials worked, Phase I&ndash;IV &amp; Post-Approval</div></div>
+<div class="stat-block"><div class="stat-figure">20+</div><div class="stat-caption">Countries across US, EU, UK, APAC, LatAm &amp; CEE region</div></div>
+<div class="stat-block"><div class="stat-figure">10+</div><div class="stat-caption">Therapeutic areas, from oncology to rare disease</div></div>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<h3>Oncology &amp; Hematology</h3>
+<p>NSCLC (incl. EGFR-mutated metastatic disease), breast cancer, AML/MDS with IDH1 mutation, head &amp; neck cancer, and solid tumor immune checkpoint blockade studies, Phase I&ndash;III.</p>
+</div>
+<div class="service-card">
+<h3>Immunology &amp; Dermatology</h3>
+<p>Global Phase III/PAS programs for Cosentyx (psoriasis, nail psoriasis, psoriatic arthritis) across EU, LatAm, and APAC, plus chronic pruritus and autoimmune myopathy studies.</p>
+</div>
+<div class="service-card">
+<h3>Cardiovascular &amp; Renal</h3>
+<p>Coronary artery disease, acute coronary syndrome, chronic kidney disease, and the Entresto (heart failure) Post-Approval Study &mdash; a first-of-its-kind launch in the US &amp; Canada.</p>
+</div>
+<div class="service-card">
+<h3>Cell &amp; Gene Therapy</h3>
+<p>Autologous CD19-specific CAR-T cell therapy in inflammatory myopathy, alongside other first-in-human and early-phase oncology programs.</p>
+</div>
+<div class="service-card">
+<h3>Rare Disease &amp; CNS</h3>
+<p>Rare thyroid disorder in children, growth hormone deficiency, essential tremor, mild cognitive impairment/Alzheimer's, and PTSD studies involving central rating and diagnostic verification.</p>
+</div>
+<div class="service-card">
+<h3>Endocrinology &amp; Metabolic</h3>
+<p>Type 2 diabetes and rare genetic obesity (melanocortin-4 receptor pathway) studies, alongside COPD and inflammatory bowel disease programs.</p>
+</div>
+</div>
+</section>
+
+<section class="contact reveal" id="contact">
+<h2>Let's talk</h2>
+<p class="section-intro">Reach out to discuss your next clinical, regulatory, or fundraising milestone.</p>
+<div class="contact-box">
+<a class="btn book-call" href="https://calendar.app.google/J4MB4VKFbBHJTb9p7" target="_blank" rel="noopener">Book a call</a>
+<a class="quick-email" href="mailto:traiche@nushevbiotech.com">traiche@nushevbiotech.com</a>
+<a class="quick-email" href="https://www.linkedin.com/in/traiche-nushev-62908a7/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+<form id="contactForm" novalidate>
+<div class="field">
+<label for="name">Name</label>
+<input type="text" id="name" name="name" placeholder="Your name">
+<div class="error" id="nameError"></div>
+</div>
+<div class="field">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="you@company.com">
+<div class="error" id="emailError"></div>
+</div>
+<div class="field">
+<label for="message">Message</label>
+<textarea id="message" name="message" placeholder="Tell me a bit about what you're working on"></textarea>
+<div class="error" id="messageError"></div>
+</div>
+<div class="submit-row">
+<button type="submit" class="btn">Send message</button>
+<span class="form-status" id="formStatus"></span>
+</div>
+</form>
+</div>
+</section>
+
+<footer>
+&copy; 2026 Nushev Biotech Advisory. All rights reserved.
+</footer>
+
+<button id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<script>
+// Sticky header shadow
+const header = document.getElementById('siteHeader');
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY > 20;
+  header.classList.toggle('scrolled', scrolled);
+  backToTop.classList.toggle('show', window.scrollY > 500);
+  updateActiveNav();
+});
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const siteNav = document.getElementById('siteNav');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('open');
+  siteNav.classList.toggle('open');
+});
+siteNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    menuToggle.classList.remove('open');
+    siteNav.classList.remove('open');
+  });
+});
+
+// Logo click -> scroll top
+document.querySelector('[data-scroll-to="top"]').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Active nav link highlighting
+const navLinks = document.querySelectorAll('[data-nav]');
+const sections = ['services', 'about', 'track-record', 'contact'].map(id => document.getElementById(id));
+function updateActiveNav() {
+  let current = null;
+  sections.forEach(sec => {
+    const rect = sec.getBoundingClientRect();
+    if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+
+// Back to top click
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// Animated stat counters
+const statNums = document.querySelectorAll('.stat .count-num');
+let statsAnimated = false;
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !statsAnimated) {
+      statsAnimated = true;
+      statNums.forEach(el => {
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        const duration = 1200;
+        const start = performance.now();
+        function step(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          el.textContent = Math.floor(progress * target);
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(step);
+      });
+    }
+  });
+}, { threshold: 0.4 });
+statsObserver.observe(document.querySelector('.stats'));
+
+// Expandable service cards
+document.querySelectorAll('[data-card]').forEach(card => {
+  card.addEventListener('click', () => {
+    const isOpen = card.classList.contains('open');
+    card.classList.toggle('open');
+    const hint = card.querySelector('.toggle-hint');
+    hint.textContent = isOpen ? '+ Show details' : '− Hide details';
+  });
+});
+
+// Contact form validation + Formspree submission
+const form = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+const submitBtn = form.querySelector('button[type="submit"]');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const message = document.getElementById('message');
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const messageError = document.getElementById('messageError');
+  nameError.textContent = '';
+  emailError.textContent = '';
+  messageError.textContent = '';
+  let valid = true;
+  if (!name.value.trim()) { nameError.textContent = 'Please enter your name.'; valid = false; }
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email.value.trim())) { emailError.textContent = 'Please enter a valid email.'; valid = false; }
+  if (!message.value.trim()) { messageError.textContent = 'Please add a short message.'; valid = false; }
+  if (!valid) return;
+  submitBtn.disabled = true;
+  formStatus.style.color = '#9fe3c6';
+  formStatus.textContent = 'Sending…';
+  formStatus.classList.add('show');
+  try {
+    const res = await fetch('https://formspree.io/f/mppaejjj', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+    if (res.ok) {
+      formStatus.textContent = 'Message sent — thanks, I\'ll be in touch soon.';
+      form.reset();
+    } else {
+      formStatus.style.color = '#ff9d9d';
+      formStatus.textContent = 'Something went wrong — please email traiche@nushevbiotech.com directly.';
+    }
+  } catch (err) {
+    formStatus.style.color = '#ff9d9d';
+    formStatus.textContent = 'Something went wrong — please email traiche@nushevbiotech.com directly.';
+  }
+  submitBtn.disabled = false;
+  setTimeout(() => formStatus.classList.remove('show'), 6000);
+});
+
+updateActiveNav();
+</script>
+</body>
+</html>
