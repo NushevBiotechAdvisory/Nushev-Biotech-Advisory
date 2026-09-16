@@ -1,0 +1,13 @@
+title: Nushev Biotech Advisory
+description: >-
+  Clinical development strategy, fundraising, and regulatory insights from
+  Nushev Biotech Advisory.
+url: "https://nushevbiotech.com"
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+plugins:
+  - jekyll-feed
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
