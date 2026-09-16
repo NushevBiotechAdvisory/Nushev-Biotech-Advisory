@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if page.title %}{{ page.title }} | {% endif %}Nushev Biotech Advisory</title>
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}Nushev Biotech Advisory">
+<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<link rel="icon" type="image/png" href="{{ '/nushev-logo.png' | relative_url }}">
+<link rel="alternate" type="application/rss+xml" title="Nushev Biotech Advisory Blog" href="{{ '/feed.xml' | relative_url }}">
+<style>
+:root {
+  --navy: #10233d;
+  --navy-light: #1b3a5f;
+  --accent: #2f6f5e;
+  --accent-light: #3d8973;
+  --bg: #f7f8fa;
+  --text: #222b36;
+  --muted: #5b6672;
+  --border: #e2e5e9;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+a { color: inherit; }
+
+/* Header (matches main site) */
+header {
+  background: var(--navy);
+  color: #fff;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.25s ease, padding 0.25s ease;
+}
+header.scrolled {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  padding: 12px 6%;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+header .logo .logo-mark { flex-shrink: 0; width: 32px; height: 32px; border-radius: 8px; display: block; }
+header nav { display: flex; align-items: center; }
+header nav a {
+  color: #cfd8e3;
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 0.95rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-light);
+  transition: width 0.25s ease;
+}
+header nav a:hover { color: #fff; }
+header nav a:hover::after,
+header nav a.active::after { width: 100%; }
+header nav a.active { color: #fff; }
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  display: block;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+@media (max-width: 680px) {
+  .menu-toggle { display: flex; }
+  header nav {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    background: var(--navy);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 6% 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  header nav.open { max-height: 300px; }
+  header nav a { margin: 12px 0; }
+}
+
+/* Page header */
+.page-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: #fff;
+  padding: 64px 6% 54px;
+  text-align: center;
+}
+.page-hero h1 { font-size: 2.2rem; font-weight: 650; margin-bottom: 10px; }
+.page-hero p { color: #cfd8e3; max-width: 560px; margin: 0 auto; font-size: 0.95rem; }
+
+main { max-width: 860px; margin: 0 auto; padding: 60px 6%; }
+
+/* Blog listing */
+.blog-list { display: grid; gap: 24px; }
+.blog-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 28px 26px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.blog-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(16,35,61,0.08);
+  border-color: var(--accent-light);
+}
+.blog-card .blog-date {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+.blog-card h2 { font-size: 1.25rem; color: var(--navy); margin-bottom: 10px; }
+.blog-card p { color: var(--muted); font-size: 0.95rem; }
+.blog-empty { color: var(--muted); text-align: center; padding: 40px 0; }
+
+/* Single post */
+.post-header { margin-bottom: 36px; }
+.post-header .blog-date {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+  display: block;
+}
+.post-header h1 { font-size: 2rem; color: var(--navy); font-weight: 650; margin-bottom: 8px; }
+.post-back { display: inline-block; margin-bottom: 28px; color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.post-back:hover { text-decoration: underline; }
+.post-content { font-size: 1.02rem; color: var(--text); }
+.post-content p { margin-bottom: 18px; }
+.post-content h2 { font-size: 1.4rem; color: var(--navy); margin: 32px 0 14px; }
+.post-content h3 { font-size: 1.15rem; color: var(--navy); margin: 26px 0 12px; }
+.post-content ul, .post-content ol { margin: 0 0 18px 22px; color: var(--text); }
+.post-content li { margin-bottom: 6px; }
+.post-content a { color: var(--accent); }
+.post-content blockquote {
+  border-left: 3px solid var(--accent-light);
+  padding-left: 16px;
+  color: var(--muted);
+  margin: 20px 0;
+}
+.post-content code { background: var(--bg); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+.post-content pre { background: var(--navy); color: #e6edf3; padding: 16px; border-radius: 6px; overflow-x: auto; margin-bottom: 18px; }
+.post-content pre code { background: none; padding: 0; }
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 13px 30px;
+  border-radius: 4px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn:hover { background: #266052; transform: translateY(-2px); }
+
+footer {
+  text-align: center;
+  padding: 30px 6%;
+  color: var(--muted);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--border);
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+  z-index: 90;
+}
+#backToTop.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+#backToTop:hover { background: #266052; }
+</style>
+</head>
+<body>
+<header id="siteHeader">
+<a class="logo" href="{{ '/' | relative_url }}">
+<img class="logo-mark" src="{{ '/nushev-logo.png' | relative_url }}" alt="Nushev Biotech Advisory logo">
+<span>Nushev Biotech Advisory</span>
+</a>
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+<span></span><span></span><span></span>
+</button>
+<nav id="siteNav">
+<a href="{{ '/' | relative_url }}#services">Services</a>
+<a href="{{ '/' | relative_url }}#about">About</a>
+<a href="{{ '/' | relative_url }}#track-record">Track Record</a>
+<a href="{{ '/' | relative_url }}#regional">Regional Reach</a>
+<a href="{{ '/blog/' | relative_url }}" class="{% if page.url contains '/blog/' %}active{% endif %}">Blog</a>
+<a href="{{ '/' | relative_url }}#contact">Contact</a>
+</nav>
+</header>
+
+{{ content }}
+
+<footer>
+&copy; {{ 'now' | date: "%Y" }} Nushev Biotech Advisory. All rights reserved.
+</footer>
+<button id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<script>
+const header = document.getElementById('siteHeader');
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+  backToTop.classList.toggle('show', window.scrollY > 500);
+});
+const menuToggle = document.getElementById('menuToggle');
+const siteNav = document.getElementById('siteNav');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('open');
+  siteNav.classList.toggle('open');
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
